@@ -1,6 +1,6 @@
 # Changelog
 
-## Beta v2.5 (19.02.2026)
+## Beta v2.5
 
 ### Captcha System Reworked
 - **CapSolver removed, Anti-Captcha added**
@@ -29,7 +29,7 @@
 
 ---
 
-## Beta v2.4 (19.02.2026)
+## Beta v2.4 
 
 ### New Features
 - **Start menu reworked**
@@ -56,7 +56,7 @@
 
 ---
 
-## Beta v2.3 (19.02.2026)
+## Beta v2.3 
 
 ### New Features
 - **Proxy Support**
@@ -82,7 +82,7 @@
 
 ---
 
-## Beta v2.2 (18.02.2026)
+## Beta v2.2 
 
 ### New Features
 - **Multi-Account Launcher**
@@ -123,7 +123,7 @@
 
 ---
 
-## Beta v2.1 (18.02.2026)
+## Beta v2.1 
 
 ### New Features
 - **Daily Catch Limit Detection**
@@ -157,7 +157,7 @@
 
 ---
 
-## Beta v2.0 (17.02.2026)
+## Beta v2.0 
 
 ### New Features
 - **AutoEgg System**
@@ -189,7 +189,7 @@
 
 ---
 
-## Beta v1.9 (16.02.2026)
+## Beta v1.9 
 
 ### New Features
 - Captcha detection with auto-pause
