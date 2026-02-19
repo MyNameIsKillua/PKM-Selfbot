@@ -1,5 +1,0 @@
-discord.py-self==1.9.2
-colorama==0.4.6
-plyer==2.1.0
-requests==2.31.0
-aiohttp_socks==0.8.4
