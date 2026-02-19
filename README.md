@@ -1,4 +1,13 @@
 # CatchBot by MyNameIsKillua
+
+Automate your PokeMeow grind: auto-catch Pokemon with a wide range of customizable settings and fine-tuned controls.
+
+Youtube Video - incoming
+
+Discord Server - https://discord.gg/y42nVCGZqF
+
+
+
 ## Beta Version 2.5
 
 Ein Discord Self-Bot für automatisches Pokemon Hunting in PokéMeow.
