@@ -11,7 +11,7 @@
 
 </div>
 
-## Beta v2.5 &mdash; *19.02.2026*
+## Beta v2.5 &mdash; 
 
 > Captcha system overhaul &mdash; CapSolver removed, Anti-Captcha added, report feedback for both services.
 
@@ -68,7 +68,7 @@ comment:     improved description for better recognition
 
 ---
 
-## Beta v2.4 &mdash; *19.02.2026*
+## Beta v2.4 &mdash;
 
 > Start menu reworked, config simplified, proxy safety warning.
 
@@ -127,7 +127,7 @@ comment:     improved description for better recognition
 
 ---
 
-## Beta v2.3 &mdash; *19.02.2026*
+## Beta v2.3 &mdash; 
 
 > Proxy support and IP check for multi-account safety.
 
@@ -172,7 +172,7 @@ comment:     improved description for better recognition
 
 ---
 
-## Beta v2.2 &mdash; *18.02.2026*
+## Beta v2.2 &mdash; 
 
 > Multi-account launcher, auto-release duplicates, balance check, Pokemon name recognition.
 
@@ -240,7 +240,7 @@ Config `[G]` &mdash; shows current balance of both services:
 
 ---
 
-## Beta v2.1 &mdash; *18.02.2026*
+## Beta v2.1 &mdash; 
 
 > Catch limit detection, result tracking, session stats, and Discord webhooks.
 
@@ -296,7 +296,7 @@ Waits up to 8 seconds for PokeMeow response.
 
 ---
 
-## Beta v2.0 &mdash; *17.02.2026*
+## Beta v2.0 &mdash; 
 
 > AutoEgg, captcha auto-solve, temp-ban detection, colored messages, AutoBuyer.
 
@@ -355,7 +355,7 @@ Waits up to 8 seconds for PokeMeow response.
 
 ---
 
-## Beta v1.9 &mdash; *16.02.2026*
+## Beta v1.9 &mdash; 
 
 > Captcha detection with auto-pause, alarm system, hotkeys.
 
