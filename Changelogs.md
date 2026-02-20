@@ -13,27 +13,7 @@
 
 ## Beta v2.6 &mdash; 
 
-> License system migrated, update checker functional, daily task scanning fix, stability improvements.
-
-<details>
-<summary><b>License System: KeyAuth &rarr; Keygen</b></summary>
-
-&nbsp;
-
-#### Migrated from KeyAuth to Keygen.sh
-
-| Detail | Description |
-|:-------|:------------|
-| **New Provider** | [Keygen.sh](https://keygen.sh) replaces KeyAuth for license validation |
-| **HWID Lock** | License key + machine fingerprint (same hardware lock as before) |
-| **Auto-Activate** | Machine is automatically activated on first use &mdash; no manual step needed |
-| **Saved License** | License key is cached locally, auto-validated on next launch |
-| **Why** | Keygen allows 100 free licenses (KeyAuth only allowed 10) |
-
-> [!NOTE]
-> Existing users need to enter their new license key once. It will be saved automatically after that.
-
-</details>
+> update checker functional, daily task scanning fix, stability improvements.
 
 <details>
 <summary><b>Update Checker (Now Functional)</b></summary>
