@@ -1,6 +1,6 @@
 <div align="center">
 
-<pre>
+```
  ██████╗ █████╗ ████████╗ ██████╗██╗  ██╗
 ██╔════╝██╔══██╗╚══██╔══╝██╔════╝██║  ██║
 ██║     ███████║   ██║   ██║     ███████║
@@ -13,10 +13,11 @@
           ██╔══██╗██║   ██║   ██║
           ██████╔╝╚██████╔╝   ██║
           ╚═════╝  ╚═════╝    ╚═╝
-</pre>
+```
+
 ### Automate your PokeMeow grind.
 
-[![Version](https://img.shields.io/badge/version-2.5_beta-blue?style=for-the-badge)]()
+[![Version](https://img.shields.io/badge/version-2.6_beta-blue?style=for-the-badge)]()
 [![Python](https://img.shields.io/badge/python-3.10+-yellow?style=for-the-badge&logo=python&logoColor=white)]()
 [![Discord](https://img.shields.io/badge/Discord_Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/y42nVCGZqF)
 [![License](https://img.shields.io/badge/license-Educational-green?style=for-the-badge)]()
@@ -484,7 +485,7 @@ CatchBot/
 
 <div align="center">
 
-**Beta 2.5** &mdash; Created by **MyNameIsKillua**
+**Beta 2.6** &mdash; Created by **MyNameIsKillua**
 
 [![Discord](https://img.shields.io/badge/Join_the_Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/y42nVCGZqF)
 
