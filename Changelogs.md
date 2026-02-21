@@ -4,12 +4,110 @@
 
 **All notable changes to CatchBot are documented here.**
 
-[![Current Version](https://img.shields.io/badge/Latest-Beta_v2.6-blue?style=for-the-badge)]()
-[![Release Date](https://img.shields.io/badge/Updated-20.02.2026-green?style=for-the-badge)]()
+[![Current Version](https://img.shields.io/badge/Latest-v3.0-blue?style=for-the-badge)]()
+[![Release Date](https://img.shields.io/badge/Updated-21.02.2026-green?style=for-the-badge)]()
 
 ---
 
 </div>
+
+## v3.0 &mdash; Official Release
+
+> First official release! Desktop notifications fixed, softer alarm sounds, AutoQuestRenewer, egg hatch tracking, shiny/legendary highlights.
+
+<details>
+<summary><b>Desktop Notifications (Fixed)</b></summary>
+
+&nbsp;
+
+- Replaced `plyer` (which broke in compiled .exe builds) with native Windows toast notifications via PowerShell
+- Works reliably in Nuitka .exe builds -- no external Python packages needed
+
+</details>
+
+<details>
+<summary><b>Alarm Sound Rework</b></summary>
+
+&nbsp;
+
+- Replaced harsh `winsound.Beep()` with a custom WAV generator using smooth sine-wave tones with fade-in/fade-out
+- New config option: **Alarm Volume** (0-100%, default 50%) -- adjustable in config menu
+- Plays a test tone when changing volume so you hear the result immediately
+- Even at 100% the volume is capped so it won't destroy your ears
+
+</details>
+
+<details>
+<summary><b>AutoQuestRenewer (New)</b></summary>
+
+&nbsp;
+
+Automatically renews unwanted quests after `;q` during Daily Tasks.
+
+| Config Key | What it filters |
+|:-----------|:----------------|
+| `[1]` | Toggle on/off |
+| `[2]` | Battle Quests ("Defeat", "Battle") |
+| `[3]` | Fish Quests ("Pokemon from Fishing", "Fish") |
+| `[4]` | Receive from Player ("from another player") |
+| `[5]` | Catch Quests ("Encounter", "Catch") |
+
+- Parses quest embed, matches keywords, sends `;q r {number}` automatically
+- Stops when no quest scrolls are left ("You don't have any quest reset scrolls!")
+- Re-scans the `;q r` response and renews again if the replacement quest also matches
+- 6-second cooldown between each renewal command
+
+</details>
+
+<details>
+<summary><b>Shiny & Legendary Highlights</b></summary>
+
+&nbsp;
+
+- **Console logs**: Shiny catches print as `**Shiny (Pokemon)**` with a highlighted magenta banner
+- **Shiny egg hatches**: Print as `**Shiny (Pokemon)**!` with the same highlight
+- **Private webhook** (your config webhook): Shiny catches get a gold embed color, Legendaries get purple, plus a header line so you never miss them
+- **Shared webhook** (`#successful-catches`): Same gold/purple embed color for Shiny/Legendary catches and Shiny egg hatches
+
+</details>
+
+<details>
+<summary><b>Egg Hatch Tracking</b></summary>
+
+&nbsp;
+
+- Hatched Pokemon name now extracted and shown in both console and log file
+- EXP/level-up lines are filtered out to prevent false name matches (e.g. Buddy name instead of hatched Pokemon)
+- Egg hatches sent to both shared and private webhooks
+- **Egg stats in `stats.json`**: Total eggs hatched, full hatch history (name + date + shiny), rarity breakdown (Normal vs Shiny)
+- Session and all-time egg stats shown in `[I]` statistics view
+
+</details>
+
+<details>
+<summary><b>Egg Startup Logic Improved</b></summary>
+
+&nbsp;
+
+- Bot now reads PokeMeow's response before deciding what to do
+- If egg is "not ready to hatch yet", it knows an egg is already held and skips `;egg hold`
+- Only sends `;egg hold` when no egg is held or after a successful hatch
+- 3-second delay before egg check to avoid rapid command rejection
+
+</details>
+
+<details>
+<summary><b>Other Changes</b></summary>
+
+&nbsp;
+
+- Version bumped from Beta 2.6 to **v3.0** (official release, no longer beta)
+- Quest parser now strips markdown formatting (`**`, `__`, `*`) before matching
+- Quest parser no longer creates phantom quests from reward/progress lines
+
+</details>
+
+---
 
 ## Beta v2.6 &mdash; 
 
