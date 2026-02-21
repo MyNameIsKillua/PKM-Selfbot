@@ -17,7 +17,7 @@
 
 ### Automate your PokeMeow grind.
 
-[![Version](https://img.shields.io/badge/version-3.0-blue?style=for-the-badge)]()
+[![Version](https://img.shields.io/badge/version-3.1-blue?style=for-the-badge)]()
 [![Python](https://img.shields.io/badge/python-3.10+-yellow?style=for-the-badge&logo=python&logoColor=white)]()
 [![Discord](https://img.shields.io/badge/Discord_Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/y42nVCGZqF)
 [![License](https://img.shields.io/badge/license-Educational-green?style=for-the-badge)]()
@@ -490,7 +490,7 @@ CatchBot/
 
 <div align="center">
 
-**v3.0** &mdash; Created by **MyNameIsKillua**
+**v3.1** &mdash; Created by **MyNameIsKillua**
 
 [![Discord](https://img.shields.io/badge/Join_the_Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/y42nVCGZqF)
 
