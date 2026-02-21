@@ -4,16 +4,82 @@
 
 **All notable changes to CatchBot are documented here.**
 
-[![Current Version](https://img.shields.io/badge/Latest-v3.0-blue?style=for-the-badge)]()
+[![Current Version](https://img.shields.io/badge/Latest-v3.1-blue?style=for-the-badge)]()
 [![Release Date](https://img.shields.io/badge/Updated-21.02.2026-green?style=for-the-badge)]()
 
 ---
 
 </div>
 
+## v3.1 &mdash; Captcha Notifier Customization & Egg Shiny Fix
+
+> More control over captcha alerts. Egg hatch shiny detection fixed &mdash; gold/yellow embeds (Super Rare) are no longer misidentified as Shiny.
+
+<details>
+<summary><b>Captcha Notifier Customization</b></summary>
+
+&nbsp;
+
+#### Full control over captcha alerts
+
+All captcha notification settings are now configurable in the bot's config menu under **Captcha**:
+
+| Setting | Key | Description | Default |
+|:--------|:----|:------------|:--------|
+| Desktop Notification | `[N]` | Native Windows toast popup when a captcha appears | Enabled |
+| Sound Alarm | `[S]` | Ascending beep alarm (600 &rarr; 800 &rarr; 1000 Hz) | Enabled |
+| Alarm Volume | `[L]` | Volume 0&ndash;100% for the captcha alarm | 50% |
+| Alarm Repeat | `[J]` | How many times the alarm pattern repeats | 3x |
+| Captcha Service | `[D]` | Choose between Manual, 2Captcha, or Anti-Captcha | Manual |
+| Auto-Solve | `[A]` | Automatically send captcha image to solving service | Disabled |
+| Max Retries | `[R]` | How many times auto-solve retries on wrong answer | 3x |
+| 2Captcha API Key | `[C]` | Set your 2Captcha API key | &mdash; |
+| Anti-Captcha API Key | `[K]` | Set your Anti-Captcha API key | &mdash; |
+| Check Balance | `[G]` | Show remaining balance on your captcha service | &mdash; |
+
+- All settings are saved per-account in the config JSON
+- Sound alarm only works on Windows (uses `winsound`)
+- Desktop notifications use native Windows toast (works in .exe builds)
+
+</details>
+
+<details>
+<summary><b>Egg Shiny Detection Fix</b></summary>
+
+&nbsp;
+
+#### Gold/yellow egg hatches no longer flagged as Shiny
+
+Previously, the bot detected shiny egg hatches by checking the PokeMeow embed border color. Both **pink** (Shiny) and **gold/yellow** (Super Rare) were treated as Shiny &mdash; this was incorrect.
+
+| Embed Color | Rarity | Before | After |
+|:------------|:-------|:-------|:------|
+| Pink/Magenta | Shiny | Shiny | Shiny |
+| Gold/Yellow | Super Rare | ~~Shiny~~ | Super Rare (not shiny) |
+| Orange | Rare | Rare | Rare |
+| Purple | Legendary | Legendary | Legendary |
+
+- Only the pink/magenta hue now triggers shiny detection
+- The text-based fallback (`"shiny"` in message text) still works as a secondary check
+
+</details>
+
+<details>
+<summary><b>Other Changes</b></summary>
+
+&nbsp;
+
+- Common rarity embed color changed to Dark Blue (`0x1A3A6B`) to distinguish from Uncommon (Light Blue)
+- Shiny is now checked first in rarity priority &mdash; "Shiny Legendary" correctly shows pink, not purple
+- Version bumped to **v3.1** across all files (catchbot, launcher, README, changelogs)
+
+</details>
+
+---
+
 ## v3.0 &mdash; Official Release
 
-> First official release! Desktop notifications fixed, softer alarm sounds, AutoQuestRenewer, egg hatch tracking, shiny/legendary highlights.
+> First official release! Desktop notifications fixed, softer alarm sounds, AutoQuestRenewer, egg hatch tracking, shiny/legendary highlights everywhere.
 
 <details>
 <summary><b>Desktop Notifications (Fixed)</b></summary>
@@ -31,7 +97,7 @@
 &nbsp;
 
 - Replaced harsh `winsound.Beep()` with a custom WAV generator using smooth sine-wave tones with fade-in/fade-out
-- New config option: **Alarm Volume** (0-100%, default 50%) -- adjustable in config menu
+- New config option: **Alarm Volume** (0-100%, default 50%) -- adjustable in config menu with `[L]`
 - Plays a test tone when changing volume so you hear the result immediately
 - Even at 100% the volume is capped so it won't destroy your ears
 
