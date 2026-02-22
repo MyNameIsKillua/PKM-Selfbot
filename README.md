@@ -59,6 +59,7 @@
 **Catching & Hunting**
 - Auto-catch based on rarity detection
 - Smart ball selection (Pokeball to Masterball)
+- Event Pokemon detection (red embed) &mdash; auto Premierball / Masterball
 - Pokemon name recognition via `Pokemon_Names.txt`
 - Semi-automatic fishing (`;f`)
 - Auto daily tasks (`;daily`, `;h`, `;swap`, `;q`)
@@ -72,6 +73,7 @@
 - AutoBuyer &mdash; monitor & restock ball inventory
 - AutoQuestRenewer &mdash; auto-renew unwanted quests using scrolls
 - Auto-Release &mdash; release duplicates (keeps Legendary & Shiny)
+- Startup Commands &mdash; open all lootboxes (`;lb all`) and use razz berries (`;grazz all`) on start
 - Daily catch limit detection & pause
 - Discord webhook notifications with Shiny/Legendary color highlights
 
@@ -299,6 +301,9 @@ socks5://user:pass@host:port        # SOCKS5 with Auth
 | | | **=== Auto-Release ===** | |
 | Auto-Release | `X` | Toggle duplicate release | Off |
 | Interval | `V` | Release every X catches | 50 |
+| | | **=== Startup Commands ===** | |
+| Open Lootboxes | `T` | Send `;lb all` on startup | Off |
+| Use Razz Berries | `I` | Send `;grazz all` on startup | Off |
 | | | **=== Settings ===** | |
 | Token | `8` | Set Discord token | - |
 | Channel ID | `9` | Set channel ID | - |
@@ -317,6 +322,12 @@ socks5://user:pass@host:port        # SOCKS5 with Auth
 | Super Rare | Ultraball | 3rd | Light Yellow |
 | Legendary | Masterball | 5th (far right) | Purple |
 | Shiny | Masterball | 5th (far right) | Pink |
+| Event (Common-Super Rare) | Premierball | 4th | Red embed |
+| Event (Legendary/Shiny) | Masterball | 5th (far right) | Red embed |
+
+**Available Balls:** `pb` (Pokeball), `gb` (Greatball), `ub` (Ultraball), `prb` (Premierball), `mb` (Masterball)
+
+> Event Pokemon are detected by their **red embed border** from PokeMeow. Both event overrides can be toggled individually in Ball Rules (`[E]` and `[V]`).
 
 **Example output:**
 ```
