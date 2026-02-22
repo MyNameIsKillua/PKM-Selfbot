@@ -11,9 +11,107 @@
 
 </div>
 
-## v3.1 &mdash; Captcha Notifier Customization & Egg Shiny Fix
+## v3.1 &mdash; Event Pokemon, Startup Commands & Bug Fixes
 
-> More control over captcha alerts. Egg hatch shiny detection fixed &mdash; gold/yellow embeds (Super Rare) are no longer misidentified as Shiny.
+> Event Pokemon detection with Premierball/Masterball override, startup lootbox & Grazz berry commands, false shiny detection fixed, egg shiny fix, and updated defaults, Captcha notity improvements.
+
+<details>
+<summary><b>Event Pokemon Detection (New)</b></summary>
+
+&nbsp;
+
+#### Red embed = Event Pokemon
+
+PokeMeow uses a **red embed border** for Event Pokemon. The bot now detects this and overrides ball selection automatically:
+
+| Event Rarity | Ball Used | Toggle Key |
+|:-------------|:----------|:-----------|
+| Common, Uncommon, Rare, Super Rare | **Premierball** (Button 3) | `[E]` in Ball Rules |
+| Legendary, Shiny | **Masterball** (Button 4) | `[V]` in Ball Rules |
+
+- Both toggles are **enabled by default** and can be turned off individually
+- Premierball (`prb`) is now a valid ball choice for all rarity rules (alongside `pb`, `gb`, `ub`, `mb`)
+- If the toggle is off, the normal ball rules apply even for event spawns
+- Event detection logs the embed RGB color for debugging
+
+</details>
+
+<details>
+<summary><b>Startup Commands (New)</b></summary>
+
+&nbsp;
+
+#### Open lootboxes and use razz berries automatically on startup
+
+Two new toggleable commands that run **before** the egg check on startup:
+
+| Setting | Key | Command | Default |
+|:--------|:----|:--------|:--------|
+| Open all Lootboxes | `[T]` | `;lb all` | Off |
+| Use all Grazz Berries | `[I]` | `;grazz all` | Off |
+
+- Runs before the AutoEgg check
+- Shown in the startup log when enabled
+
+</details>
+
+<details>
+<summary><b>False Shiny Detection Fix</b></summary>
+
+&nbsp;
+
+#### Lootbox emojis no longer trigger false Shiny/Legendary alerts
+
+PokeMeow's "Your vote is ready!" message contains emojis like `:shiny_lootbox:` and `:legendary_lootbox:`. These were being matched by the shiny/legendary keyword check, causing false "SHINY CAUGHT!" alerts in the console.
+
+| Source | Before | After |
+|:-------|:-------|:------|
+| `:shiny_lootbox:` in vote text | ~~False Shiny~~ | Stripped before check |
+| `:legendary_lootbox:` in vote text | ~~False Legendary~~ | Stripped before check |
+| Actual "Shiny" in embed Rarity field | Shiny | Shiny |
+
+- Lootbox emoji patterns are now stripped from `all_text` before any keyword matching (same regex as spawn detection FILTER 5)
+- Shiny fallback check now only searches the **embed text**, not `message.content`
+
+</details>
+
+<details>
+<summary><b>Egg Shiny Detection Fix</b></summary>
+
+&nbsp;
+
+#### Gold/yellow egg hatches no longer flagged as Shiny
+
+Previously, the bot detected shiny egg hatches by checking the PokeMeow embed border color. Both **pink** (Shiny) and **gold/yellow** (Super Rare) were treated as Shiny &mdash; this was incorrect.
+
+| Embed Color | Rarity | Before | After |
+|:------------|:-------|:-------|:------|
+| Pink/Magenta | Shiny | Shiny | Shiny |
+| Gold/Yellow | Super Rare | ~~Shiny~~ | Super Rare (not shiny) |
+| Orange | Rare | Rare | Rare |
+| Purple | Legendary | Legendary | Legendary |
+
+- Only the pink/magenta hue now triggers shiny detection
+- The text-based fallback (`"shiny"` in message text) still works as a secondary check
+
+</details>
+
+<details>
+<summary><b>Default Config Changes</b></summary>
+
+&nbsp;
+
+| Setting | Old Default | New Default |
+|:--------|:------------|:------------|
+| Captcha Max Retries | 3x | **2x** |
+| Alarm Repeat | 3x | **2x** |
+| AutoQuestRenewer: Catch Quests `[5]` | On | **Off** |
+| Webhook: Forward PokeMeow Embed `[F]` | Shown | **Removed** |
+
+- Option `[F]` (forward original PokeMeow embed) removed from the webhook config menu entirely
+- Catch quests are now off by default since most users don't want them auto-renewed
+
+</details>
 
 <details>
 <summary><b>Captcha Notifier Customization</b></summary>
@@ -44,33 +142,14 @@ All captcha notification settings are now configurable in the bot's config menu 
 </details>
 
 <details>
-<summary><b>Egg Shiny Detection Fix</b></summary>
-
-&nbsp;
-
-#### Gold/yellow egg hatches no longer flagged as Shiny
-
-Previously, the bot detected shiny egg hatches by checking the PokeMeow embed border color. Both **pink** (Shiny) and **gold/yellow** (Super Rare) were treated as Shiny &mdash; this was incorrect.
-
-| Embed Color | Rarity | Before | After |
-|:------------|:-------|:-------|:------|
-| Pink/Magenta | Shiny | Shiny | Shiny |
-| Gold/Yellow | Super Rare | ~~Shiny~~ | Super Rare (not shiny) |
-| Orange | Rare | Rare | Rare |
-| Purple | Legendary | Legendary | Legendary |
-
-- Only the pink/magenta hue now triggers shiny detection
-- The text-based fallback (`"shiny"` in message text) still works as a secondary check
-
-</details>
-
-<details>
 <summary><b>Other Changes</b></summary>
 
 &nbsp;
 
 - Common rarity embed color changed to Dark Blue (`0x1A3A6B`) to distinguish from Uncommon (Light Blue)
 - Shiny is now checked first in rarity priority &mdash; "Shiny Legendary" correctly shows pink, not purple
+- Premierball added to all ball name mappings and button index logic
+- "Restore Default Rules" `[7]` now also resets event pokemon toggles
 - Version bumped to **v3.1** across all files (catchbot, launcher, README, changelogs)
 
 </details>
