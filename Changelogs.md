@@ -4,12 +4,125 @@
 
 **All notable changes to CatchBot are documented here.**
 
-[![Current Version](https://img.shields.io/badge/Latest-v4.0-blue?style=for-the-badge)]()
-[![Release Date](https://img.shields.io/badge/Updated-23.02.2026-green?style=for-the-badge)]()
+[![Current Version](https://img.shields.io/badge/Latest-v5.0-blue?style=for-the-badge)]()
+[![Release Date](https://img.shields.io/badge/Updated-11.03.2026-green?style=for-the-badge)]()
 
 ---
 
 </div>
+
+## v5.0 &mdash; CatchBot AI Solver, Quest Reroll Overhaul, Shiny Webhook Images & More
+
+> Integrated local AI captcha solver (~94% accuracy), Anti-Ban features, persistent quest rerolling, shiny/special form images on shared webhook, improved Pokemon name detection, and multiple QoL fixes.
+
+<details>
+<summary><b>CatchBot AI Captcha Solver (New)</b></summary>
+
+&nbsp;
+
+#### Free, local AI-powered captcha solving &mdash; no API key needed
+
+A fully integrated captcha solver that runs locally on your machine. No external service, no API costs, no internet dependency for solving.
+
+| Feature | Detail |
+|:--------|:-------|
+| **Accuracy** | ~94% on PokeMeow captchas |
+| **Speed** | Solves during the configurable wait delay |
+| **Cost** | Free &mdash; runs entirely on your machine |
+| **Config `[D]`** | Select "CatchBot AI" as captcha service (Option 1) |
+| **Model** | embedded in the .exe |
+| **Preload** | Model loads at startup so when u start it loads a bit |
+
+> [!NOTE]
+> CatchBot AI is now the **default and recommended** captcha service. 2Captcha and Anti-Captcha are still available as alternatives.
+
+</details>
+
+<details>
+
+<summary><b>Anti-Ban features (New)</b></summary>
+
+&nbsp;
+
+#### Various anti-ban options designed to help prevent bans.
+
+> [!NOTE]
+> For more information, read the QuickStart_Guide provided in the ZIP file.
+
+</details>
+
+<details>
+<summary><b>Quest Renewer Persistent Reroll (Reworked)</b></summary>
+
+&nbsp;
+
+#### Keeps rerolling each quest until it becomes a desired quest
+
+Previously, the AutoQuestRenewer only rerolled each unwanted quest once. Now it tracks which quest slots have been successfully renewed and continues rerolling the same quest until it's no longer an unwanted type or quest scrolls run out.
+
+| Before | After |
+|:-------|:------|
+| Rerolls unwanted quest once | Keeps rerolling until quest is desired or scrolls run out |
+| Might get another unwanted quest | Ensures every slot ends up with a wanted quest (if scrolls allow) |
+
+</details>
+
+<details>
+<summary><b>Improved Pokemon Name Detection (New)</b></summary>
+
+&nbsp;
+
+#### Direct extraction patterns for special form names
+
+Added patterns that detect hyphenated and multi-part form names directly from the "You caught" message text, even when they're not in `Pokemon_Names.txt`.
+
+| Example | Before | After |
+|:--------|:-------|:------|
+| Iron-Leaves | Not detected | Detected |
+| Arceus-Fairy | Not detected | Detected |
+| Necrozma Ultra | Not detected | Detected |
+
+</details>
+
+<details>
+<summary><b>Event Pokemon Webhook Toggle (New)</b></summary>
+
+&nbsp;
+
+#### Toggle Event Pokemon catches in private webhook
+
+New config option `event_pokemon.webhook_enabled` lets you turn on/off sending Event Pokemon catches to your private webhook. Access it via the Webhook menu with `[W]`.
+
+</details>
+
+<details>
+<summary><b>Temp-Ban on Manual Captcha Fail (New)</b></summary>
+
+&nbsp;
+
+#### Bot detects temp-ban after failed manual captcha and pauses automatically
+
+When using manual captcha solving, if the captcha is not solved in time and PokeMeow issues a temporary ban, the bot now correctly detects this and pauses automatically with the standard temp-ban warning + alarm. Press `[P]` to resume after the ban expires.
+
+</details>
+
+<details>
+<summary><b>Other Changes & Bug Fixes</b></summary>
+
+&nbsp;
+
+- **Event webhook moved** &mdash; Event webhook toggle moved from Catch Rules to the Webhook menu `[W]`
+- **Quest reroll plural fix** &mdash; Fixed "Receive from Player" quests not being rerolled when the quest text used plural form ("receive")
+- **Captcha image download retries** &mdash; If the captcha image fails to download, the bot now retries up to 3 times with 2-second intervals before playing the alarm
+- **CatchBot AI as default service** &mdash; CatchBot AI is now listed first `[1]` in the captcha service selection menu
+- **Captcha max retries** &mdash; Default increased from 2 to 3
+- **Captcha AI delay** &mdash; Default reduced from 10-20s to 10-17s
+- **Alarm defaults** &mdash; Volume reduced to 33% (was 50%), repeat reduced to 1 (was 2)
+- **AI model preload** &mdash; Model is loaded at startup so may take a while to load when u start
+
+</details>
+
+---
 
 ## v4.0 &mdash; Full Auto Fish, Inventory Check, Captcha Improvements & Stats
 
@@ -22,7 +135,7 @@
 
 #### Fully automated fishing with MeowHelper rarity detection
 
-The bot now fully handles the fishing flow: sends `;f`, detects the bite, clicks the rod button, waits for the fish Pokemon spawn, and catches it automatically.
+The bot now fully handles the fishing flow: sends `;f`, detects the bite, clicks the rod button, waits for the fish Pokemon spawn (message edit), and catches it automatically.
 
 | Feature | Detail |
 |:--------|:-------|
@@ -48,7 +161,7 @@ The bot now fully handles the fishing flow: sends `;f`, detects the bite, clicks
 Instead of blindly running `;lb all` and `;grazz all`, the bot now:
 
 1. Sends `;inv` first
-2. Parses the inventory
+2. Parses the inventory embed (strips markdown bold `**` formatting)
 3. Only runs `;lb all` if Lootboxes > 0
 4. Only runs `;grazz all` if GRazz Berries > 0
 5. Displays all ball counts with AutoBuy threshold status
